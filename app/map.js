@@ -1,11 +1,13 @@
 $(function() {
-	 var map = new L.Map('map'),
-          tiles = new L.TileLayer('http://a.tiles.mapbox.com/v3/bobbysud.map-94xylfrd/{z}/{x}/{y}.png', {maxZoom: 17}),
-          popup = new L.Popup(),
-          clientId = 'f62cd3b9e9a54a8fb18f7e122abc52df',
-          circle;
+var map = new L.Map('map');
 
-      map.on('locationfound', onLocationFound);
+		var cloudmadeUrl = 'http://a.tiles.mapbox.com/v3/bobbysud.map-94xylfrd/{z}/{x}/{y}.png',
+			cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+			cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+		map.addLayer(cloudmade);
+
+		map.on('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
 
 		map.locateAndSetView();
@@ -19,29 +21,16 @@ $(function() {
 
 			var circle = new L.Circle(e.latlng, radius);
 			map.addLayer(circle);
-	}
+		}
 
+		function onLocationError(e) {
+			alert(e.message);
+		}
 
-
-
-
-      map.on('click', onMapClick);
-
-		var popup = new L.Popup();
-		var marker = new L.Marker();
-
-		function onMapClick(e) {
-			var latlngStr = '(' + e.latlng.lat.toFixed(3) + ', ' + e.latlng.lng.toFixed(3) + ')';
-
-			popup.setLatLng(e.latlng);
-			marker.setLatLng(e.latlng);
-			popup.setContent("Station Information" + latlngStr);
-		
-			map.addLayer(marker).openPopup(popup);;
+		function onLocationError(e) {
+			map.setView(new L.LatLng(37.8043637, -122.2711137), 13).addLayer(tiles);
 		}
 
 
 
-
-  
-      });
+	});
