@@ -24,7 +24,6 @@
         padding-bottom: 40px;
       }
     </style>
-
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.css" />
@@ -46,21 +45,51 @@
   </head>
 
   <body>
-    <div id="map"></div>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">Oakland Pumps it up!</a>
-          <a href="add.html" class="btn btn-success">Add Station</a>              
         </div>
       </div>
     </div>
 
     <div class="container">
 
-     
-
-
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <div class="controls">
+              <label>Station Type</label>
+              <select id="station_type">
+                <option value="Bike Shop">Bike Shop</option>
+                <option value="Citizen Supported">Citizen Supported</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label>Name</label>
+              <input type="text" id="name">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label>Address</label>
+              <textarea id="address"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label>Description</label>
+              <textarea id="description"></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button class="btn">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
 
     </div> <!-- /container -->
 
@@ -70,7 +99,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
-    <script src="app/map.js"></script>
     
 
 
