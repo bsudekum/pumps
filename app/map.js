@@ -47,7 +47,7 @@ $(function () {
   }
 
   $.ajax({
-    url: 'http://oaklandpumpsitup.dev/stations.json',
+    url: 'http://oaklandpumpsitup.herokuapp.com/stations.json',
     dataType: 'json',
     success: function (data) {
       console.log(data)
