@@ -55,7 +55,7 @@
 
     <div class="container">
 
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="new-station-form">
         <fieldset>
           <div class="control-group">
             <div class="controls">
@@ -91,6 +91,7 @@
         </fieldset>
       </form>
 
+
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -100,6 +101,31 @@
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
     
+      <script>
+        $(document).on("submit", "#new-station-form", function(event){
+          
+          event.preventDefault();
+
+          data = {
+            "station\[name\]": $("#name").val(),
+            "station\[address\]": $("#address").val(),
+            "station\[description\]": $("#description").val(),
+            "station\[station_type\]": $("#station_type").val()
+          }
+
+
+          $.ajax({
+            url: 'http://oaklandpumpsitup.dev/stations.json',
+            type: 'POST',
+            data: data,
+            success: function(){
+              alert('Thanks for adding a station!');
+            }
+          });
+
+          return false;
+        });
+      </script>
 
 
   </body>
