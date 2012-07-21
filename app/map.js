@@ -1,14 +1,8 @@
 $(function () {
   var map = new L.Map('map');
+    tiles = new L.TileLayer('http://a.tiles.mapbox.com/v3/bobbysud.map-94xylfrd/{z}/{x}/{y}.png', {maxZoom: 17});
 
-  var cloudmadeUrl = 'http://a.tiles.mapbox.com/v3/bobbysud.map-94xylfrd/{z}/{x}/{y}.png',
-    cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-    cloudmade = new L.TileLayer(cloudmadeUrl, {
-      maxZoom: 18,
-      attribution: cloudmadeAttribution
-    });
-
-  map.addLayer(cloudmade);
+  map.addLayer(tiles);
 
   map.on('locationfound', onLocationFound);
   map.on('locationerror', onLocationError);
@@ -31,7 +25,7 @@ $(function () {
   }
 
   function onLocationError(e) {
-    map.setView(new L.LatLng(37.8043637, - 122.2711137), 13).addLayer(cloudmade);
+    map.setView(new L.LatLng(37.8043637, - 122.2711137), 13).addLayer(tiles);
   }
 
   function addPoints(data) {
@@ -41,9 +35,9 @@ $(function () {
       var marker = new L.Marker(markerLocation)
       map.addLayer(marker);
 
-      marker.bindPopup("<b>Name:</b> " + station.name + "<br />" +
-                       "<b>Address:</b> " + station.address + "<br />" +
-                       "<b>Description:</b> " + station.description);
+      marker.bindPopup("<ul><li><b>Name:</b> " + station.name + "</li>" +
+                       "<li><b>Address:</b><li> " + station.address + "</li>" +
+                       "<li><b>Description:</b><li> " + station.description + "</li></ul>");
 
     });
 
