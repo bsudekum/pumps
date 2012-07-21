@@ -35,7 +35,18 @@ $(function () {
   }
 
   function addPoints(data) {
-    console.log(data)
+
+    $.each(data, function(_, station) {
+      var markerLocation = new L.LatLng(station.latitude, station.longitude)
+      var marker = new L.Marker(markerLocation)
+      map.addLayer(marker);
+
+      marker.bindPopup("<b>Name:</b> " + station.name + "<br />" +
+                       "<b>Address:</b> " + station.address + "<br />" +
+                       "<b>Description:</b> " + station.description);
+
+    });
+
   }
 
   /*$.ajax({
