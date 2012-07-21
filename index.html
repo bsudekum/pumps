@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Oakland Pumps it up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -54,10 +54,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Oakland Pumps it up!</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -80,15 +79,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
-    <script>
-      var map = new L.Map('map'),
-          tiles = new L.TileLayer('http://a.tiles.mapbox.com/v3/bobbysud.map-94xylfrd/{z}/{x}/{y}.png', {maxZoom: 17}),
-          popup = new L.Popup(),
-          clientId = 'f62cd3b9e9a54a8fb18f7e122abc52df',
-          circle;
-
-      map.setView(new L.LatLng(37.8043637, -122.2711137), 13).addLayer(tiles);
-      </script>
+    <script src="app/map.js"></script>
+    
 
 
   </body>
