@@ -10,7 +10,7 @@ $(function () {
   map.locateAndSetView();
 
   function onLocationFound(e) {
-    var radius = e.accuracy / 2;
+    var radius = e.accuracy / 100;
 
     var marker = new L.Marker(e.latlng);
     map.addLayer(marker);
